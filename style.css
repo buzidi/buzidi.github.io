@@ -1,0 +1,128 @@
+/* إعدادات أساسية وتنسيق الخلفية */
+body {
+    font-family: 'Cairo', sans-serif; /* استخدام الخط العربي الجميل */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); /* خلفية بألوان هادئة ومتدرجة */
+    color: #333;
+    perspective: 1000px; /* مهم للتأثير ثلاثي الأبعاد */
+    overflow: hidden; /* لمنع ظهور أشرطة التمرير أثناء التحريك */
+}
+
+/* تصميم الكرت الشخصي مع تأثير ثلاثي الأبعاد عند التحميل */
+.card {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: rotateY(20deg) rotateX(10deg) scale(0.8); /* الوضعية المائلة الأولية مع تصغير */
+    opacity: 0;
+    animation: float-in 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards 0.5s; /* حركة الدخول */
+}
+
+/* حركة الدخول للكرت */
+@keyframes float-in {
+    to {
+        transform: rotateY(0) rotateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.card-content {
+    opacity: 0; /* إخفاء المحتوى في البداية */
+    animation: fade-in 1s ease-in forwards 2s; /* حركة ظهور المحتوى بعد حركة الكرت */
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+    }
+}
+
+/* تصميم الصورة الشخصية */
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+}
+
+/* تصميم الاسم */
+h1 {
+    margin: 10px 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    min-height: 70px; /* حجز مساحة لتجنب اهتزاز الصفحة */
+}
+
+/* تصميم النبذة التعريفية ومؤشر الكتابة */
+#bio-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    min-height: 70px; /* حجز مساحة لتجنب اهتزاز الصفحة */
+    display: inline-block; /* لجعل المؤشر يظهر بجانب النص فقط */
+}
+
+#bio-text.typing-effect::after {
+    content: '|';
+    animation: blink-caret 0.75s step-end infinite;
+    color: #333;
+    font-weight: bold;
+}
+
+/* حركة مؤشر الكتابة */
+@keyframes blink-caret {
+    from, to { opacity: 0 }
+    50% { opacity: 1 }
+}
+
+/* حاوية أيقونات التواصل الاجتماعي */
+.social-icons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* تصميم الأيقونات */
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ألوان خاصة لكل أيقونة */
+.social-icon.facebook  { background: #1877F2; }
+.social-icon.telegram  { background: #26A5E4; }
+.social-icon.instagram { background: #E4405F; }
+.social-icon.whatsapp  { background: #25D366; }
+.social-icon.youtube   { background: #FF0000; }
+.social-icon.email     { background: #7f8c8d; }
+
+/* تأثير جميل عند مرور الماوس فوق الأيقونات */
+.social-icon:hover {
+    transform: translateY(-8px) scale(1.1); /* حركة للأعلى مع تكبير */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
