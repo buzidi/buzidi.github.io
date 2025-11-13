@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // --- إعدادات يمكنك تغييرها ---
-    const yourName = "اسمك هنا | Your Name";
-    const bioText = "لمحة جميلة عني تكتب هنا بشكل تدريجي وجذاب.";
+    const yourName = "محمد البوزيدي | mohammed AL-buzidi";
+    const bioText = "مطور ويب وشغوف بالتقنيات الحديثة. أبحث دائماً عن تحديات جديدة لتوسيع معرفتي ومهاراتي في عالم البرمجة.";
     
     const nameContainer = document.getElementById('name-container');
     const bioElement = document.getElementById('bio-text');
